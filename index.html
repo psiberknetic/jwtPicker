@@ -1,0 +1,28 @@
+<haed>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="functions.js"></script>
+    <script src="https://use.fontawesome.com/b6e622c531.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</haed>
+<body>
+    <h1>JWT Extraction</h1>
+    <p>Paste the header from the authorization page in the text box below and click search to extract any tokens from the payload.</p>
+    <h3>Paste the string here</h3>
+    <div id='formFields' class='containerForm'>
+        <textarea id="textToSearch" type="text" class="inputBox" rows="5"></textarea>
+        <button id="btnSearchText" onclick="getKeyFromText()">Search for token<span class="fa fa-search"></span></button>
+        <h3>Results <span id="copyResults" class="fa fa-clipboard" title="Copy to Clipboard" onclick="copyResults()"></span></h3>
+        <textarea id='results' type='text' class="inputBox" rows="5"></textarea>
+    </div>
+    <script>
+
+        function getKeyFromText(){
+            $('#results').val(searchForKey($('#textToSearch').val()));
+        }
+
+        function copyResults(){
+            $('#results').select();
+            document.execCommand('copy');
+        }
+    </script>
+</body>
